@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataAGVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DataAGVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AGV_ErrorHistory" EntityType="DataAGVModel.AGV_ErrorHistory" />
+  </EntityContainer>
+  <EntityType Name="AGV_ErrorHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_AGV" Type="Int32" Nullable="false" />
+    <Property Name="TimerError" Type="DateTime" Precision="3" />
+    <Property Name="ErrorCode" Type="Int32" />
+  </EntityType>
+</Schema>

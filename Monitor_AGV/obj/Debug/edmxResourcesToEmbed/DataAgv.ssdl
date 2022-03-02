@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataAGVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGV_ErrorHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_AGV" Type="int" Nullable="false" />
+    <Property Name="TimerError" Type="datetime" />
+    <Property Name="ErrorCode" Type="int" />
+  </EntityType>
+  <EntityContainer Name="DataAGVModelStoreContainer">
+    <EntitySet Name="AGV_ErrorHistory" EntityType="Self.AGV_ErrorHistory" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

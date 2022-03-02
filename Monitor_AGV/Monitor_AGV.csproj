@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5B90A8A-19DE-4CCE-B4D3-AAB23C98642A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Monitor_AGV</RootNamespace>
+    <AssemblyName>Monitor_AGV</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="S7.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\S7.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contributions\MyLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contributions\MyStation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entity\AGV_ErrorHistory.cs">
+      <DependentUpon>DataAgv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataAgv.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAgv.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataAgv.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAgv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataAgv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAgv.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfor.Designer.cs">
+      <DependentUpon>frmInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadDatas\AGV.cs" />
+    <Compile Include="LoadDatas\Line.cs" />
+    <Compile Include="LoadDatas\LoadSample.cs" />
+    <Compile Include="LoadDatas\Shelf.cs" />
+    <Compile Include="LoadDatas\Station.cs" />
+    <Compile Include="LoadDatas\UpdateAGV.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Registry\MyRegistry.cs" />
+    <Compile Include="INotify.cs" />
+    <Compile Include="Contributions\MyAGV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contributions\MyShelf.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communication\ExchangeData.cs" />
+    <Compile Include="frmAGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAGV.Designer.cs">
+      <DependentUpon>frmAGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAGV.resx">
+      <DependentUpon>frmAGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfor.resx">
+      <DependentUpon>frmInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entity\DataAgv.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataAgv.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Entity\ClassDiagram1.cd" />
+    <None Include="Entity\DataAgv.edmx.diagram">
+      <DependentUpon>DataAgv.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_xx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_2_1png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizontal_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizontal_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizontal_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizontal_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_state_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_state_31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yyy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yyy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zzz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yyy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ccc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jjj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paomedia-Small-N-Flat-Floppy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paomedia-Small-N-Flat-Floppy1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv_27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\221.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\333.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abcd.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pickup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\DataAgv.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataAgv.Context.cs</LastGenOutput>
+      <DependentUpon>DataAgv.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\DataAgv.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataAgv.edmx</DependentUpon>
+      <LastGenOutput>DataAgv.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\charging5.png" />
+    <None Include="Resources\charging4.png" />
+    <None Include="Resources\charging3.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\charging2.png" />
+    <None Include="Resources\charging1.png" />
+    <None Include="Resources\charging.png" />
+    <None Include="Resources\delivery2.gif" />
+    <None Include="Resources\delivery1.gif" />
+    <None Include="Resources\151.png" />
+    <None Include="Resources\2.gif" />
+    <None Include="Resources\Untitled11.gif" />
+    <None Include="Resources\pickup_3.gif" />
+    <None Include="Resources\agv_tang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
